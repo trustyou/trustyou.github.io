@@ -1,2 +1,4 @@
-webassets
 nikola==7.8.6
+markdown
+ghp-import
+webassets

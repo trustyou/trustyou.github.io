@@ -6,5 +6,6 @@ venv
 __pycache__
 
 # Nikola output dirs
-# output
-# cache
+output
+cache
+.doit.db.*
