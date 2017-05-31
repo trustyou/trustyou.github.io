@@ -1,3 +1,10 @@
-venv
+# IDEs
 .idea
+
+# Python temp files
+venv
 __pycache__
+
+# Nikola output dirs
+# output
+# cache

@@ -13,7 +13,7 @@ VENV_DIR := venv
 
 
 #################################
-# CLEAN-UP                  	#
+# CLEAN-UP                      #
 #################################
 clean-temp-files:
 	@echo "####################################################"
@@ -37,7 +37,7 @@ clean: clean-temp-files clean-venv
 
 
 #################################
-# VIRTUAL ENVIRONMENT       	#
+# VIRTUAL ENVIRONMENT           #
 #################################
 venv:
 	@echo "####################################################"
@@ -48,13 +48,23 @@ venv:
 
 
 #################################
-# INSTALLATION					#
+# INSTALLATION                  #
 #################################
 install: venv
 	@echo "####################################################"
 	@echo "# ACTIVATING VENV & RESOLVING DEPENDENCIES         #"
 	@echo "####################################################"
 	@. $(VENV_DIR)/bin/activate && pip install -r requirements.txt
+	@echo "Done!"
+
+
+#################################
+# BUILDING AND GENERATION       #
+#################################
+build:
+	@echo "####################################################"
+	@echo "# BUILDING THE BLOG AND PLACING OUTPUT AT ROOT     #"
+	@echo "####################################################"
 	@. $(VENV_DIR)/bin/activate && nikola build
 	@echo "Done!"
 
