@@ -15,12 +15,25 @@ VENV_DIR := venv
 #################################
 # CLEAN-UP                  	#
 #################################
-clean:
+clean-temp-files:
+	@echo "####################################################"
+	@echo "# CLEANING UP CACHED AND TMP FILES                 #"
+	@echo "####################################################"
+	@find . -name "*.pyc" -delete
+	@find . -name "*.pyo" -delete
+	@find . -name "__pycache__" -exec rm -rf {} \; || echo "";
+	@echo "Done!"
+
+
+clean-venv:
 	@echo "####################################################"
 	@echo "# CLEANING UP THE VIRTUAL ENVIRONMENT              #"
 	@echo "####################################################"
 	@rm -rf $(VENV_DIR)
 	@echo "Done!"
+
+
+clean: clean-temp-files clean-venv
 
 
 #################################
@@ -41,7 +54,7 @@ install: venv
 	@echo "####################################################"
 	@echo "# ACTIVATING VENV & RESOLVING DEPENDENCIES         #"
 	@echo "####################################################"
-	@. $(VENV_DIR)/bin/activate \
-		&& pip install -r requirements.txt
+	@. $(VENV_DIR)/bin/activate && pip install -r requirements.txt
+	@. $(VENV_DIR)/bin/activate && nikola build
 	@echo "Done!"
 

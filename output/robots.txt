@@ -1,0 +1,4 @@
+Sitemap: http://trustyou.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: trustyou.github.io
